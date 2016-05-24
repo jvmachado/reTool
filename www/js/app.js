@@ -13,7 +13,6 @@ angular.module('starter', ['ionic','ionic.service.core','starter.controllers','s
     var deviceInformation = ionic.Platform.device();
 
     push.register(function(token) {
-
       console.log("My Device token:",token.token);
       console.log("token: "+ token.token);
       console.log("dev: "+deviceInformation.uuid);

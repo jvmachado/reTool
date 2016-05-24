@@ -11,10 +11,10 @@
 
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
-<script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+  <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
   <!-- cordova script (this will be a 404 during development) -->
   <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
-<!-- <script src="cordova.js"></script> -->
+  <!-- <script src="cordova.js"></script> -->
   <!-- your app's js -->
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
@@ -23,29 +23,34 @@
 <body ng-app="starter">
 
   <ion-pane>
-   <div class="bar bar-header bar-positive">
-   <h1 class="title">Timeline</h1>
-  </div>
-  <ion-content ng-controller="timeline">
-    <section id="cd-timeline" class="cd-container">
-      <div class="cd-timeline-block" ng-repeat="indicador in indicadores">
-       
-        <div ng-if="indicador.tendencia ==1" class="cd-timeline-img cd-picture">
-          <i class="icon ion-arrow-up-c"></i>
-        </div> <!-- cd-timeline-img -->
-        <div ng-if="indicador.tendencia ==-1" class="cd-timeline-img cd-movie">
-          <i class="icon ion-arrow-down-c"></i>
-        </div> <!-- cd-timeline-img -->
+   <div class="bar bar-header bar-positive" style="background:#854442">
+     <h1 class="title" style="color:#fff4e6"><strong>Timeline</strong></h1>
+   </div>
+   <ion-content ng-controller="timeline">
+    <ion-refresher
+    pulling-icon="none";
+    spinner="bubbles";
+    disable-pulling-rotation="true";
+    on-refresh="doRefresh()">
+  </ion-refresher>
+  <section id="cd-timeline" class="cd-container">
+    <div class="cd-timeline-block" ng-repeat="indicador in indicadores">
 
-        <div class="cd-timeline-content">
-          <h2>{{indicador.titulo}}</h2>
-          <p>{{indicador.corpo}}</p>
-          <span class="cd-date">h&#xE1; 2 min</span>
-        </div> <!-- cd-timeline-content -->
-      </div> <!-- cd-timeline-block -->
-    </section> <!-- cd-timeline -->
-  </ion-content>
+      <div ng-if="indicador.tendencia ==1" class="cd-timeline-img cd-picture">
+        <i class="icon ion-arrow-up-c"></i>
+      </div> <!-- cd-timeline-img -->
+      <div ng-if="indicador.tendencia ==-1" class="cd-timeline-img cd-movie">
+        <i class="icon ion-arrow-down-c"></i>
+      </div> <!-- cd-timeline-img -->
 
+      <div class="cd-timeline-content">
+        <h2>{{indicador.titulo}}</h2>
+        <p>{{indicador.corpo}}</p>
+        <span class="cd-date">h&#xE1; 2 min</span>
+      </div> <!-- cd-timeline-content -->
+    </div> <!-- cd-timeline-block -->
+  </section> <!-- cd-timeline -->
+</ion-content>
 </ion-pane>
 </body>
 </html>
