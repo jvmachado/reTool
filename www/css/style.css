@@ -83,8 +83,8 @@ header h1 {
   margin-top: 2em;
   margin-bottom: 2em;
 }
-#cd-timeline::before {
   /* this is the vertical line */
+#cd-timeline::before {
   content: '';
   position: absolute;
   top: 0;
@@ -93,7 +93,6 @@ header h1 {
   width: 4px;
   background:#6b6b6b;
 }
-
 .cd-timeline-block {
   position: relative;
   margin: 2em 0;
@@ -110,12 +109,19 @@ header h1 {
   margin-bottom: 0;
 }
 
+/*tirar a linha de baixo da timeline*/
+.cd-timeline-block:last-child::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15px;
+  height: 125%;
+  width: 10px;
+  background:#a9b0a7;
+}
 .cd-timeline-img {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
   border-radius: 50%;
   box-shadow: 0 0 0 4px #1e1b1b, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
@@ -129,11 +135,24 @@ header h1 {
   margin-left: -12px;
   margin-top: -12px;
 }
-.cd-timeline-img.cd-picture {
-  background:   #61df00;
+.cd-timeline-img.cd-loja {
+  left: -5px;
+  width: 50px;
+  height: 50px;
+  background:#4db200;
 }
-.cd-timeline-img.cd-movie {
+.cd-timeline-img.cd-categoria {
+  left: 0px;
+  width: 40px;
+  height: 40px;
   background: #61df00;
+}
+
+.cd-timeline-img.cd-produto {
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  background:#80e532;
 }
 
 .cd-timeline-content {
@@ -191,11 +210,26 @@ header h1 {
 
 i{
   display: block;
-    font-size: 30px;
     color:white;
     position: absolute;
-    left: 60%;
+    left: 58%;
     top: 45%;
     margin-left: -12px;
     margin-top: -12px;
+}
+
+.cd-timeline-img.cd-produto i{
+  font-size: 30px;
+  left: 63%;
+  top:40%;
+}
+.cd-timeline-img.cd-loja i{
+  font-size: 50px;
+  left: 47%;
+  top:25%;
+}
+.cd-timeline-img.cd-categoria i{
+  font-size: 35px;
+  left: 56.5%;
+  top:35%;
 }

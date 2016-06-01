@@ -27,7 +27,7 @@
 
   <ion-pane>
    <div class="bar bar-header bar-positive" style="background:#6b6b6b">
-     <h1 class="title" style="font-size:30px; font-weight:bolder;">Timeline</h1>
+     <h1 class="title" style="font-size:20px; font-weight:bolder;">Timeline</h1>
    </div>
    <ion-content ng-controller="timeline">
     <ion-refresher pulling-icon="none" ;="" spinner="bubbles" disable-pulling-rotation="true" on-refresh="doRefresh()">
@@ -35,12 +35,16 @@
   <section id="cd-timeline" class="cd-container">
     <div class="cd-timeline-block" ng-repeat="indicador in indicadores">
 
-      <div ng-if="indicador.tendencia ==1" class="cd-timeline-img cd-picture">
+      <div ng-if="indicador.tipoGrupo =='loja'" class="cd-timeline-img cd-loja">
         <i class="icon ion-arrow-up-c"></i>
       </div> <!-- cd-timeline-img -->
-      <div ng-if="indicador.tendencia ==-1" class="cd-timeline-img cd-movie">
-        <i class="icon ion-arrow-down-c"></i>
+      <div ng-if="indicador.tipoGrupo =='categoria'" class="cd-timeline-img cd-categoria">
+        <i class="icon ion-arrow-up-c"></i>
       </div> <!-- cd-timeline-img -->
+       <div ng-if="indicador.tipoGrupo =='produto'" class="cd-timeline-img cd-produto">
+        <i class="icon ion-arrow-up-c"></i>
+      </div> <!-- cd-timeline-img -->
+
 
       <div class="cd-timeline-content">
         <h2>{{indicador.titulo}}</h2>
