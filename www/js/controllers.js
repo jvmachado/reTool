@@ -1,8 +1,8 @@
 angular.module('starter.controllers', [])
 
 .controller('timeline', function($http,$scope) {
-	refresh = function(){
-		$http.get('http://10.96.127.142:4000/last20')
+	$scope.refresh = function(){
+		return $http.get('http://10.96.127.145:4000/last20')
 		.then(function(response) {
 			for(obj of response.data){
 				dia = new Date(obj.data).getDate();
@@ -20,25 +20,25 @@ angular.module('starter.controllers', [])
 						obj.postado =res+' h';
 					}else{
 						if(hora < 1){
-							hora = new Date(0).getTime();
+							obj.postado = "Agora mesmo"
+						}else{
+							obj.postado = hora+' min';
 						}
-						obj.postado = hora+' min';
 					}
 				}else{
 					obj.postado = new Date(obj.data);
 				}
 			}
 			$scope.indicadores = response.data;			
-		})
-		.finally(function() {
-			$scope.$broadcast('scroll.refreshComplete');
 		});
+		
 	}
-	refresh();
+	$scope.refresh();
 	$scope.doRefresh = function() {
 		setTimeout(function() {
-			$scope.indicadores = [];
-			refresh();
+			$scope.refresh().finally(function() {
+				$scope.$broadcast('scroll.refreshComplete');
+			});
 		}, 2000);
 		
 
