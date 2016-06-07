@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('timeline', function($http,$scope) {
+.controller('timeline', function($http,$scope,$window) {
 	$scope.refresh = function(){
 		return $http.get('http://10.96.127.145:4000/last20')
 		.then(function(response) {
@@ -40,7 +40,20 @@ angular.module('starter.controllers', [])
 				$scope.$broadcast('scroll.refreshComplete');
 			});
 		}, 2000);
-		
-
 	};
-});
+	$scope.class = "min-lines";
+	$scope.changeClass = function(id){
+		var x = document.getElementsByTagName("p");
+		for(e in x){
+			if(x[e].id != id){
+				console.log(x[e]);
+				x[e].className = "min-lines";
+			}
+		}
+		if(document.getElementById(id).className == "min-lines"){
+			document.getElementById(id).className="";
+		}else{
+			document.getElementById(id).className="min-lines";
+		}
+	};
+})

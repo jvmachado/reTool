@@ -8,7 +8,7 @@ angular.module('starter.services', [])
 				device: device
 			}
 
-			var url = "http://10.96.127.142:4000/device";
+			var url = "http://10.96.127.145:4000/device";
 
 			var req = {
 				method: 'POST',
