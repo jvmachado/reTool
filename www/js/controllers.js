@@ -56,4 +56,7 @@ angular.module('starter.controllers', [])
 			document.getElementById(id).className="min-lines";
 		}
 	};
+	$scope.resetClass = function(id){
+		document.getElementById(id).className="min-lines";
+	}
 })
