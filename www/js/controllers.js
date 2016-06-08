@@ -13,11 +13,12 @@ angular.module('starter.controllers', [])
 				if(dia == atual){
 					if(hora > 60){
 						var res = (hora/60);
+
 						var minuto = res - (hora-(60*res));
 						minuto = parseInt(minuto);
 						if(res < 10) res = '0'+res;
 						if(minuto < 10) res = minuto;		
-						obj.postado =res+' h';
+						obj.postado =res.toFixed(0)+' h';
 					}else{
 						if(hora < 1){
 							obj.postado = "Agora mesmo"
