@@ -17,7 +17,6 @@ angular.module('starter.services', [])
 			}
 
 			$http(req).then(function sucessCallback(response){
-          			//response.data.resposta.name;
           			return response;		
           			console.log("cadastrou device");
           		}, function errorCallback(response){

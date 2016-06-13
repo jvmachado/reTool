@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('timeline', function($http,$scope,$window) {
 	$scope.refresh = function(){
-		return $http.get('http://10.96.127.145:4000/last20')
+		return $http.get('http://10.96.127.144:4000/last20')
 		.then(function(response) {
 			for(obj of response.data){
 				dia = new Date(obj.data).getDate();
